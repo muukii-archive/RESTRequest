@@ -1,0 +1,14 @@
+PODS:
+  - RESTRequest (0.1.0)
+
+DEPENDENCIES:
+  - RESTRequest (from `../`)
+
+EXTERNAL SOURCES:
+  RESTRequest:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RESTRequest: fa9ea6acdb827b8cbcb93f47736e77b0c2ea5220
+
+COCOAPODS: 0.39.0
