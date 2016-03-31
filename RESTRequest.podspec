@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.summary          = "Reference implementation of BrickRequest for accessing REST APIs"
   s.description      = <<-DESC
                        Reference implementation of BrickRequest for accessing REST APIs
+                     Powered by Alamofire
                        DESC
 
   s.homepage         = "https://github.com/muukii/RESTRequest"

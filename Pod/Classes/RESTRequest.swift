@@ -24,6 +24,20 @@ import Alamofire
 import BrickRequest
 import SwiftyJSON
 
+struct Get: GETRequestType {
+    var path: String {
+        return "/user"
+    }
+    
+    var parameterJSON: JSON {
+        var json = JSON([
+            "limit" : 10,
+            "page" : 1,
+            ])
+        return json
+    }
+}
+
 public enum AppRequestError: ErrorType {
     
     public typealias StatusCode = Int
@@ -84,7 +98,7 @@ extension APISessionRequestType {
 
 public protocol JSONResponseType: ResponseType {}
 
-public protocol GETRequestType: PathRequestType {
+public protocol GETRequestType: PathRequestType, JSONResponseType, APISessionRequestType {
     
 }
 
@@ -104,7 +118,7 @@ extension GETRequestType {
     }
 }
 
-public protocol DELETERequestType: PathRequestType {
+public protocol DELETERequestType: PathRequestType, JSONResponseType, APISessionRequestType {
     
 }
 
@@ -124,7 +138,7 @@ extension DELETERequestType {
     }
 }
 
-public protocol PUTRequestType: PathRequestType {
+public protocol PUTRequestType: PathRequestType, JSONResponseType, APISessionRequestType {
     
 }
 
@@ -144,7 +158,7 @@ extension PUTRequestType {
     }
 }
 
-public protocol POSTRequestType: PathRequestType {
+public protocol POSTRequestType: PathRequestType, JSONResponseType, APISessionRequestType {
     
 }
 
