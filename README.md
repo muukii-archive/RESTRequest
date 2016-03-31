@@ -19,16 +19,16 @@ RESTRequest's dependencies.
 - GET
 ```swift
 struct GetUsers: GETRequestType {
-    var path: String {
-      return "/user"
-    }
+  var path: String {
+    return "/user"
+  }
 
   var parameterJSON: JSON {
-      let json = JSON([
-          "limit" : 10,
-          "page" : 1,
-          ])
-      return json
+    let json = JSON([
+      "limit" : 10,
+      "page" : 1,
+    ])
+    return json
   }
 }
 ```
