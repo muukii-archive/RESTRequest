@@ -24,20 +24,6 @@ import Alamofire
 import BrickRequest
 import SwiftyJSON
 
-struct Get: GETRequestType {
-    var path: String {
-        return "/user"
-    }
-    
-    var parameterJSON: JSON {
-        var json = JSON([
-            "limit" : 10,
-            "page" : 1,
-            ])
-        return json
-    }
-}
-
 public enum AppRequestError: ErrorType {
     
     public typealias StatusCode = Int
