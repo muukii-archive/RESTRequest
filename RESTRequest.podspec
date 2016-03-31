@@ -9,9 +9,9 @@
 Pod::Spec.new do |s|
   s.name             = "RESTRequest"
   s.version          = "0.1.0"
-  s.summary          = "A short description of RESTRequest."
+  s.summary          = "Reference implementation of BrickRequest for accessing REST APIs"
   s.description      = <<-DESC
-
+                       Reference implementation of BrickRequest for accessing REST APIs
                        DESC
 
   s.homepage         = "https://github.com/muukii/RESTRequest"
@@ -28,4 +28,6 @@ Pod::Spec.new do |s|
     'RESTRequest' => ['Pod/Assets/*.png']
   }
   s.dependency 'BrickRequest', '~> 0.3.0'
+  s.dependency 'SwiftyJSON', '~> 2.3.1'
+  s.dependency 'RxSwift', '~> 2.3.1'
 end
