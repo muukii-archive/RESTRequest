@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RESTRequest"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Reference implementation of BrickRequest for accessing REST APIs"
   s.description      = <<-DESC
                        Reference implementation of BrickRequest for accessing REST APIs
