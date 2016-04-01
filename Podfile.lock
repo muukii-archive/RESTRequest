@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (3.3.0)
+  - BrickRequest (0.4.0):
+    - Alamofire (~> 3.3.0)
+  - RxSwift (2.3.1)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - BrickRequest (~> 0.4.0)
+  - RxSwift (~> 2.3.1)
+  - SwiftyJSON (~> 2.3.1)
+
+SPEC CHECKSUMS:
+  Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
+  BrickRequest: 11664a50ebf0af77ff87ad18a9e9ea4fc09bf900
+  RxSwift: 829b2843e9eddc77a02cb3f5117f0d55f8f646f1
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+COCOAPODS: 0.39.0

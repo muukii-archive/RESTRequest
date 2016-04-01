@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RESTRequest"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "Reference implementation of BrickRequest for accessing REST APIs"
   s.description      = <<-DESC
                        Reference implementation of BrickRequest for accessing REST APIs
@@ -22,16 +22,11 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/muukii/RESTRequest.git", :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.9'
   s.tvos.deployment_target = '9.0'
-  s.watchos.deployment_target = '2.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'RESTRequest' => ['Pod/Assets/*.png']
-  }
-  s.dependency 'BrickRequest', '~> 0.3.0'
+  s.source_files = 'RESTRequest/*.swift'
+  s.dependency 'BrickRequest', '~> 0.4.0'
   s.dependency 'SwiftyJSON', '~> 2.3.1'
   s.dependency 'RxSwift', '~> 2.3.1'
 end
