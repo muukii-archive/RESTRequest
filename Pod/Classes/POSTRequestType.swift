@@ -1,4 +1,4 @@
-// AnonymousSessionStack.swift
+// POSTRequestType.swift
 //
 // Copyright (c) 2015 muukii
 //
@@ -21,23 +21,29 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-public struct AnonymousSessionStack: SessionStackType {
+import Alamofire
+import BrickRequest
+import SwiftyJSON
+
+public protocol POSTRequestType:
+    PathRequestType,
+    JSONResponseType,
+    ManagerRequestType
+{
     
-    public var baseURLString: String {
-        fatalError("AnonymousSessionStack is dummy class")
+}
+
+extension POSTRequestType {
+    public var method: Alamofire.Method {
+        return .POST
     }
     
-    public var defaultHeader: [String : String] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var defaultParameter: [String : AnyObject] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var manager: Alamofire.Manager {
-        fatalError("AnonymousSessionStack is dummy class")
+    public func createRequest(method method: Alamofire.Method, URLString: String, manager: Manager) -> Request {
+        
+        let parameters = self.combinedDefaultParameterJSON.dictionaryObject
+        let header = self.combinedDefaultHeader
+        let request = manager.request(method, URLString, parameters: parameters, encoding: .JSON, headers: header)
+        return request
     }
 }

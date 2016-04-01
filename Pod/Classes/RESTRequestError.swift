@@ -1,4 +1,4 @@
-// AnonymousSessionStack.swift
+// RESTRequestError.swift
 //
 // Copyright (c) 2015 muukii
 //
@@ -21,23 +21,11 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-public struct AnonymousSessionStack: SessionStackType {
+public enum RESTRequestError: ErrorType {
     
-    public var baseURLString: String {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var defaultHeader: [String : String] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var defaultParameter: [String : AnyObject] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var manager: Alamofire.Manager {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
+    case NotJSONResponse
+    case LostData
+    case UnknownError
+    case LostConnection
 }

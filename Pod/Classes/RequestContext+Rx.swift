@@ -13,7 +13,7 @@ import Alamofire
 
 import BrickRequest
 
-extension RequestContextType where Self: ResponseType, Self: RequestType, Self.ResponseError == AppRequestError {
+extension RequestContextType where Self: ResponseType, Self: RequestType, Self.ResponseError == RESTRequestError {
 
     public func resume() -> Observable<Self.SerializedObject> {
         return Observable.create { observer in

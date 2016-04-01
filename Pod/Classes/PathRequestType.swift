@@ -1,4 +1,4 @@
-// AnonymousSessionStack.swift
+// PathRequestType.swift
 //
 // Copyright (c) 2015 muukii
 //
@@ -21,23 +21,46 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-public struct AnonymousSessionStack: SessionStackType {
+import Alamofire
+import BrickRequest
+import SwiftyJSON
+
+public protocol PathRequestType: RequestType {
     
-    public var baseURLString: String {
-        fatalError("AnonymousSessionStack is dummy class")
+    var path: String { get }
+    var parameterJSON: JSON { get }
+    var header: [String : String] { get }
+}
+
+extension PathRequestType {
+    
+    public var URLString: String {
+        return (SessionStackHolder.sessionStack.baseURLString as NSString).stringByAppendingPathComponent(self.path)
     }
     
-    public var defaultHeader: [String : String] {
-        fatalError("AnonymousSessionStack is dummy class")
+    var combinedDefaultParameterJSON: JSON {
+        
+        var json = self.parameterJSON
+        let defaultParameter = SessionStackHolder.sessionStack.defaultParameter
+        
+        for param in defaultParameter {
+            json[param.0] = JSON(param.1)
+        }
+        
+        return json
     }
     
-    public var defaultParameter: [String : AnyObject] {
-        fatalError("AnonymousSessionStack is dummy class")
+    public var header: [String : String] {
+        return [:]
     }
     
-    public var manager: Alamofire.Manager {
-        fatalError("AnonymousSessionStack is dummy class")
+    var combinedDefaultHeader: [String : String] {
+        
+        var header = self.header
+        for param in SessionStackHolder.sessionStack.defaultHeader {
+            header[param.0] = param.1
+        }
+        return header
     }
 }

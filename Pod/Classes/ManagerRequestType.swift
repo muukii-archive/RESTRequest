@@ -1,4 +1,4 @@
-// AnonymousSessionStack.swift
+// ManagerRequestType.swift
 //
 // Copyright (c) 2015 muukii
 //
@@ -20,24 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import Foundation
 import Alamofire
+import BrickRequest
+import SwiftyJSON
 
-public struct AnonymousSessionStack: SessionStackType {
+public protocol ManagerRequestType: RequestType {}
+
+extension ManagerRequestType {
     
-    public var baseURLString: String {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var defaultHeader: [String : String] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var defaultParameter: [String : AnyObject] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var manager: Alamofire.Manager {
-        fatalError("AnonymousSessionStack is dummy class")
+    public var manager: Manager {
+        return SessionStackHolder.sessionStack.manager
     }
 }
+
+

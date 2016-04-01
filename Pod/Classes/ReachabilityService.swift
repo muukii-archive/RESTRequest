@@ -49,7 +49,7 @@ extension ObservableConvertibleType {
                         return (a.0 + 1, e)
                     }
                     .flatMap { retryCount, error -> Observable<Void> in
-                        if case .LostConnection? = error as? AppRequestError where retryCount < 3 {
+                        if case .LostConnection? = error as? RESTRequestError where retryCount < 3 {
                             return createRetryTrigger(reachabilityService)
                         }
                         return Observable.error(error)

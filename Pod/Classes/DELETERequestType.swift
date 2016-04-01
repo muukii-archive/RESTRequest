@@ -1,4 +1,4 @@
-// AnonymousSessionStack.swift
+// DELETERequestType.swift
 //
 // Copyright (c) 2015 muukii
 //
@@ -21,23 +21,31 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-public struct AnonymousSessionStack: SessionStackType {
+import Alamofire
+import BrickRequest
+import SwiftyJSON
+
+public protocol DELETERequestType:
+    PathRequestType,
+    JSONResponseType,
+    ManagerRequestType
+{
     
-    public var baseURLString: String {
-        fatalError("AnonymousSessionStack is dummy class")
+}
+
+extension DELETERequestType {
+    public var method: Alamofire.Method {
+        return .DELETE
     }
     
-    public var defaultHeader: [String : String] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var defaultParameter: [String : AnyObject] {
-        fatalError("AnonymousSessionStack is dummy class")
-    }
-    
-    public var manager: Alamofire.Manager {
-        fatalError("AnonymousSessionStack is dummy class")
+    public func createRequest(method method: Alamofire.Method, URLString: String, manager: Manager) -> Request {
+        
+        guard let parameters = self.combinedDefaultParameterJSON.dictionaryObject else {
+            preconditionFailure("Failed to convert to dictonary")
+        }
+        let header = self.combinedDefaultHeader
+        let request = manager.request(method, URLString, parameters: parameters, encoding: .URL, headers: header)
+        return request
     }
 }
