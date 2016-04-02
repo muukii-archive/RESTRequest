@@ -23,5 +23,5 @@
 import Foundation
 
 public enum SessionStackHolder {
-    static var sessionStack: SessionStackType = AnonymousSessionStack()
+    public static var sessionStack: SessionStackType = AnonymousSessionStack()
 }
