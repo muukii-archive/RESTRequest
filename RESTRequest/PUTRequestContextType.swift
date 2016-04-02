@@ -1,4 +1,4 @@
-// POSTRequestType.swift
+// PUTRequestType.swift
 //
 // Copyright (c) 2015 muukii
 //
@@ -26,7 +26,8 @@ import Alamofire
 import BrickRequest
 import SwiftyJSON
 
-public protocol POSTRequestType:
+public protocol PUTRequestContextType:
+    RequestContextType,
     PathRequestType,
     JSONResponseType,
     ManagerRequestType
@@ -34,14 +35,16 @@ public protocol POSTRequestType:
     
 }
 
-extension POSTRequestType {
+extension PUTRequestContextType {
     public var method: Alamofire.Method {
-        return .POST
+        return .PUT
     }
     
     public func createRequest(method method: Alamofire.Method, URLString: String, manager: Manager) -> Request {
         
-        let parameters = self.combinedDefaultParameterJSON.dictionaryObject
+        guard let parameters = self.parameterJSON.dictionaryObject else {
+            preconditionFailure("Failed to convert to dictonary")
+        }
         let header = self.combinedDefaultHeader
         let request = manager.request(method, URLString, parameters: parameters, encoding: .JSON, headers: header)
         return request

@@ -26,7 +26,8 @@ import Alamofire
 import BrickRequest
 import SwiftyJSON
 
-public protocol GETRequestType:
+public protocol GETRequestContextType:
+    RequestContextType,
     PathRequestType,
     JSONResponseType,
     ManagerRequestType
@@ -34,7 +35,7 @@ public protocol GETRequestType:
     
 }
 
-extension GETRequestType {
+extension GETRequestContextType {
     public var method: Alamofire.Method {
         return .GET
     }

@@ -26,7 +26,8 @@ import Alamofire
 import BrickRequest
 import SwiftyJSON
 
-public protocol DELETERequestType:
+public protocol DELETERequestContextType:
+    RequestContextType,
     PathRequestType,
     JSONResponseType,
     ManagerRequestType
@@ -34,7 +35,7 @@ public protocol DELETERequestType:
     
 }
 
-extension DELETERequestType {
+extension DELETERequestContextType {
     public var method: Alamofire.Method {
         return .DELETE
     }
