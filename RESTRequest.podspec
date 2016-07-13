@@ -28,5 +28,5 @@ Pod::Spec.new do |s|
   s.source_files = 'RESTRequest/*.swift'
   s.dependency 'BrickRequest', '~> 0.4.0'
   s.dependency 'SwiftyJSON', '~> 2.3.1'
-  s.dependency 'RxSwift', '~> 2.3.1'
+  s.dependency 'RxSwift', '~> 2.0'
 end
